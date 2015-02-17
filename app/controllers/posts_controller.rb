@@ -6,7 +6,7 @@ def index
 end
 
 def show 
-	@post = Post.find(paramas[:user_id])
+	@post = Post.find(paramas[:id])
 end 
 
 def destory
