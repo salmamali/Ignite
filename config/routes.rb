@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+   resources :posts
   #posts GET /posts(.:format)  posts#index
   root 'posts#index'
   resources :posts
