@@ -1,12 +1,10 @@
 <h1>Feeds<h1>
-<%= form_for :post, url: posts_path do |f| %>
 <table>
 	<% @posts.each do |post| %>
     <tr>
-      <td><%= link_to post.title , posts_path(@post) %><td>
+      <td><%= link_to post.title , posts_path(post) %><td>
       <td><%= post.text %></td>
   	</tr>
   <% end %>
-  </table>
-  <% end %>
-  <%= link_to 'Back', posts_path %>
+</table>
+<%= link_to 'Back', posts_path %>
