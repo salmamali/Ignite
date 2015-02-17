@@ -1,0 +1,10 @@
+<%= form_tag(comments_path(commentable: commentable_object)) do |f| %>
+  <p>
+    <b>Comment</b><br>
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>
