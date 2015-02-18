@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 <h1>IGNITE</h1>
 <p>Find me in app/views/posts/index.html.erb
 Salma
 </p>
+=======
+<h1>Feeds<h1>
+<%= form_for :post, url: posts_path do |f| %>
+<table>
+	<% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to post.title , posts_path(@post) %><td>
+      <td><%= post.text %></td>
+  	</tr>
+  <% end %>
+  </table>
+  <% end %>
+  <%= link_to 'Back', posts_path %>
+>>>>>>> 2bde546c4ba0d703e697e6e1737c845e84b21025

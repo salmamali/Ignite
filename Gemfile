@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'tzinfo-data'
+<<<<<<< HEAD
 
 gem 'devise'
 
+=======
+>>>>>>> 2bde546c4ba0d703e697e6e1737c845e84b21025
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
