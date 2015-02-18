@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
-<<<<<<< HEAD
-  def index
-  end
-=======
+
+
 def destroy
 	@post = Post.find(params[:user_id])
 	@post.destroy
@@ -25,6 +23,36 @@ def destory
 	@post.destory
 end 
 
+	def index 
+		@posts = Post.all
+	end
 
->>>>>>> 2bde546c4ba0d703e697e6e1737c845e84b21025
+	def show 
+		@post = Post.find(params[:id])
+	end 
+
+	def destory
+		@post = Post.find(params[:user_id])
+		@post.destory
+		redirect_to posts_path
+	end 
+
+	def create
+		@post = Post.new body: params[:body], title: params[:title]
+		if @post.save
+			params[:images].each {|image| @post.images.create picture: image}
+			params[:videos].each {|video| @post.videos.create url: video}
+			redirect_to @post
+		else
+			render 'new'
+		end
+	end
+
+	def new
+		@post = Post.new
+	end
+
+
+
+
 end

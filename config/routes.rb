@@ -1,16 +1,17 @@
-Rails.application.routes.draw do
 
-<<<<<<< HEAD
-   root 'posts#index'
   devise_for :users
  
-=======
-   resources :posts
+
   #posts GET /posts(.:format)  posts#index
   root 'posts#index'
   resources :posts
   
->>>>>>> 2bde546c4ba0d703e697e6e1737c845e84b21025
+
+Rails.application.routes.draw do
+  resources :comments, only: [:create, :destroy]
+  resources :posts
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

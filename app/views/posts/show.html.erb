@@ -7,5 +7,17 @@
 	<strong>Text:</strong>
 	<%= @post.body %>
 </p>
+<ul>
+<% @post.images.each do |image| %>
+	<li><%= image_tag image.picture_url, size:'100x100' %></li>
+<% end %> 
+</ul>
 
-<%= link_to 'Back', articles_path %>
+<ul>
+<% @post.videos.each do |video| %>
+	<li><%= video.embedded_iframe.html_safe %></li>
+<% end %>
+</ul>
+
+
+<%= link_to 'Back', posts_path %>

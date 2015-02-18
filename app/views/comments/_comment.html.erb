@@ -1,0 +1,8 @@
+<%= form_tag comments_path(commentable: commentable_object), method: :post do %>
+  <p>
+    <%= text_field_tag :body %>
+  </p>
+  <p>
+    <%= submit_tag 'Comment' %>
+  </p>
+<% end %>
