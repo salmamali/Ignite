@@ -1,0 +1,36 @@
+<%= form_tag posts_url, multipart: true do %>
+	<p>
+		<%= label_tag :title %>
+		<%= text_field_tag :title %>
+	</p>
+
+	<p>
+		<%= label_tag :body %>
+		<%= text_area_tag :body %>
+	</p>
+
+	<p>
+		<%= file_field_tag 'images[]', multiple: true %>
+	</p>
+
+	<div id='videos_fields'>
+		<p>
+			<%= label_tag :video_url %>
+			<%= text_field_tag 'videos[]'%>
+		</p>
+	</div>
+	<%= link_to 'Add another video', '#', id: 'addMoreVideos' %>
+	<%= submit_tag %>
+<% end %>
+
+<script>
+	$(document).ready(function(){
+		$('#addMoreVideos').on('click', function(e){
+			e.preventDefault();
+			label = '<%= label_tag :video_url %> ' 
+			field = '<%= text_field_tag "videos[]" %>';
+			html = "<p>" + label + field + "</p>"
+			$('#videos_fields').append(html);
+		});
+	});
+</script>
