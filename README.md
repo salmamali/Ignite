@@ -8,4 +8,4 @@
 |Youssef Hossam Sholqamy | 28-1424 | youssefsholqamy@gmail.com |
 |Mohamed Marwan Mohamed | 28-0807  | mmarwanm94@gmail.com |
 |Menna El-Kashef | 28-3216|mennaelkashef23@gmail.com |
-|Ahmed Adel |28-2010 | 28-2010|
+|Ahmed Adel |28-2010 | 3adel94@gmail.com|
