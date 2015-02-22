@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require slick.scss
+ *= require slick-theme.scss
+ *= require foundation_and_overrides
  */

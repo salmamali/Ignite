@@ -1,6 +1,5 @@
 class Video < ActiveRecord::Base
 	belongs_to :post
-
 	before_create :set_embedded_iframe
 
 

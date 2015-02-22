@@ -1,0 +1,21 @@
+<section class='home-section' id='contact'>
+	<div class='row'>
+		<div class='row title'>
+			<h2>CONTACT US</h2>
+			<h3>lorem slogan contact us now</h3>
+		</div>
+
+		<div class='row form'>
+			<div class='small-6 small-centered columns'>
+			<%= form_tag '#' do %>
+				<%= text_field_tag :name, nil, placeholder: 'Name'%>
+				<%= text_field_tag :email, nil, placeholder: 'Email' %>
+				<%= text_area_tag :message,nil, placeholder:'Message', rows: 12%><br />
+				<div class='small-4 small-centered columns'>
+					<%= submit_tag 'Submit', class: 'contact-submit button radius ' %>
+				</div>
+			<% end %>
+		</div>
+		</div>
+	</div>
+</section>

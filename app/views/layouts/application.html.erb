@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Ignite</title>
- 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-  <%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body >
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to 'SQUIB', root_path %></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><%= link_to 'Latest', posts_path%></li>
+          <% if current_user %>
+            <% if current_user.is_member || current_user.authorized %>
+              <li><%= link_to 'Compose', new_post_path %></li>
+            <% end %>
+            <li><%= link_to 'Settings', '#'%></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+
+          <% else %>
+            <li><%= link_to 'Sign in', user_session_path %></li>
+          <% end %>
+        </ul>
+
+      </section>
+    </nav>
+    <%= yield %>
+
+  </body>
 </html>

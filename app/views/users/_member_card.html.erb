@@ -1,0 +1,10 @@
+<div class='squibers-grid-card'>
+	<%= image_tag member.avatar_url %>
+	<h4><%= link_to member.name, user_path(member)%></h4>
+	<h5>Developer</h5>
+	<ul class="top-social-icons">
+		<li><%= link_to '', '#', class: 'twitter', data: {tooltip: "twitter"}%></li>
+		<li><%= link_to '', '#', class: 'facebook', data: {tooltip: "facebook"}%></li>
+		<div class="clear"> </div>
+	</ul>
+</div>

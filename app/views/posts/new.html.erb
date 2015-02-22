@@ -1,36 +1,25 @@
-<%= form_tag posts_url, multipart: true do %>
+<div class='row'>
+<%= form_for @post, html: {multipart: true} do |form| %>
 	<p>
-		<%= label_tag :title %>
-		<%= text_field_tag :title %>
+		<%= form.label :title %>
+		<%= form.text_field :title, style: 'width:100%' %>
 	</p>
 
 	<p>
-		<%= label_tag :body %>
-		<%= text_area_tag :body %>
+		<%= form.label :body %>
+		<%= form.cktext_area :body, :ckeditor => {:toolbar => 'inline'} %>
+
 	</p>
 
 	<p>
-		<%= file_field_tag 'images[]', multiple: true %>
+		<%= form.label :snippet %>
+		<%= form.text_field :snippet %>
 	</p>
 
-	<div id='videos_fields'>
-		<p>
-			<%= label_tag :video_url %>
-			<%= text_field_tag 'videos[]'%>
-		</p>
-	</div>
-	<%= link_to 'Add another video', '#', id: 'addMoreVideos' %>
-	<%= submit_tag %>
+	<p>
+		<%= form.label :cover_image %>
+		<%= form.file_field :cover_image%>
+	</p>
+	<%= form.submit %>
 <% end %>
-
-<script>
-	$(document).ready(function(){
-		$('#addMoreVideos').on('click', function(e){
-			e.preventDefault();
-			label = '<%= label_tag :video_url %> ' 
-			field = '<%= text_field_tag "videos[]" %>';
-			html = "<p>" + label + field + "</p>"
-			$('#videos_fields').append(html);
-		});
-	});
-</script>
+</div>

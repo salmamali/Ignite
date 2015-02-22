@@ -1,0 +1,13 @@
+<div class="blog-card">
+ 	<div class="small-5 columns left blog-image">
+ 		<%= post_hero_image_helper post %>
+ 	</div>	
+ 	<div class="small-7 right blog-text">
+ 		<h6><%= "#{time_ago_in_words(post.created_at)} ago" %></h6>
+ 		<h3><%= link_to post.title, post_path(post) %></h3>
+ 			<%= image_tag 'line.png' %>
+ 		<p><%= "#{post.snippet.first(85)}..." %></p>
+ 		<p><%= link_to 'MORE', post_path(post) %></p>
+ 	</div>
+    <div class="clear"> </div>
+</div>

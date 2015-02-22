@@ -1,49 +1,23 @@
 class PostsController < ApplicationController
-
-
-def destroy
-	@post = Post.find(params[:user_id])
-	@post.destroy
-
-	redirect_to posts_path
-end
-
-
-def index 
-	@posts = Post.all
-end
-
-def show 
-
-	@post = Post.find(paramas[:id])
-end 
-
-def destory
-	@post=Post.find(params[:user_id])
-	@post.destory
-end 
-
+	before_filter :prepare_post, only: [:destroy]
+	before_filter :authenticate_user!, only: [:create, :destory]
+	before_filter :require_user_ownership, only: [:destroy]
 	def index 
 		@posts = Post.all
 	end
 
 	def show 
-		@post = Post.find(params[:id])
+		@post = Post.includes(:comments).find(params[:id])
 	end 
 
-	def destory
-		@post = Post.find(params[:user_id])
-		@post.destory
-		redirect_to posts_path
-	end 
 
 	def create
-		@post = Post.new body: params[:body], title: params[:title]
+		@post = Post.new post_params
+
 		if @post.save
-			params[:images].each {|image| @post.images.create picture: image}
-			params[:videos].each {|video| @post.videos.create url: video}
 			redirect_to @post
 		else
+				binding.pry
 			render 'new'
 		end
 	end
@@ -52,7 +26,25 @@ end
 		@post = Post.new
 	end
 
+	def destory
+		@post.destory
+		redirect_to posts_path
+	end
 
+	private
 
+	def prepare_post
+		@post = Post.find(params[:id])
+	end
+
+	def require_user_ownership
+		@post.present? && @post.author_id == current_user.id
+	end
+
+	def post_params
+		post = params.require(:post).permit(:body, :title, :snippet, :cover_image)
+		post[:author] = current_user
+		post
+	end
 
 end

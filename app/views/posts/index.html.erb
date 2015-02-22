@@ -1,14 +1,12 @@
+<section class='home-section'>
+ 	<div class='blog-content'>
+ 		<div class='blog-feed row'>
+		 	<ul class='wookmark small-block-grid-2'>
+		 		<% @posts.each do |post| %>
+		 			<li><%= render partial: 'card', locals: {post: post} %></li>
+		 		<% end %>
+		 	</ul>
+ 		</div>
+  </div>
+</section>
 
-
-<h1>Feeds<h1>
-<table>
-	<% @posts.each do |post| %>
-    <tr>
-      <td><%= link_to post.title , posts_path(post) %><td>
-      <td><%= post.text %></td>
-  	</tr>
-  <% end %>
-
-  </table>
-  
-<%= link_to 'Back', posts_path %>

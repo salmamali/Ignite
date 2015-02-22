@@ -1,0 +1,15 @@
+<section class='home-section' id='team'>
+	<div class='row'>
+		<div class='row title'>
+			<h2>SQUIBERS</h2>
+			<h3>Meet the squibers lorem ipsum</h3>
+		</div>
+		<div class='row'>
+			<ul class="small-block-grid-3">
+				<% @members.each do |member| %>
+					<li><%= render partial: 'users/member_card', locals: {member: member} %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</section>

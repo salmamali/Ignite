@@ -1,23 +1,24 @@
-<p>
-	<strong>Title:</strong>
-	<%= @post.title %>
-</p>
-
-<p>
-	<strong>Text:</strong>
-	<%= @post.body %>
-</p>
-<ul>
-<% @post.images.each do |image| %>
-	<li><%= image_tag image.picture_url, size:'100x100' %></li>
-<% end %> 
-</ul>
-
-<ul>
-<% @post.videos.each do |video| %>
-	<li><%= video.embedded_iframe.html_safe %></li>
-<% end %>
-</ul>
-
-
-<%= link_to 'Back', posts_path %>
+<section class='home-section' style='background:#f8f8f8'>
+	<div class='row'>
+		<h1><%= @post.title %></h1>
+		<p>By <%= link_to @post.author.name, @post.author %></p>
+		<div class='post-content'>
+			<%= @post.body.html_safe %>
+		</div>
+		<hr />
+		<h6><%= "#{time_ago_in_words(@post.created_at)} ago" %></h6>
+		<br />
+		<h4><%= "#{@post.comments.count} Comments"%></h4>
+		<br />
+		<div class='comments-content'>
+			<% if current_user %>
+				<%= render partial: 'comments/form', locals: {commentable_type: 'Post', commentable_id: @post.id} %>
+			<% end %>
+			<ul class='comments'>
+				<% @post.comments.each do |comment| %>
+					<li><%= render partial: 'comments/comment', locals: {comment: comment} %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</section>

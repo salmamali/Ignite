@@ -1,8 +1,12 @@
-<%= form_tag comments_path(commentable: commentable_object), method: :post do %>
-  <p>
-    <%= text_field_tag :body %>
-  </p>
-  <p>
-    <%= submit_tag 'Comment' %>
-  </p>
-<% end %>
+<div class='comment-content'>
+	<div class='avatar left'>
+		<%= image_tag comment.commenter.avatar_url %>
+	</div>
+
+	<div class='comment-body'>
+		<header><span><%= link_to comment.commenter.name, comment.commenter%></span>   <span><%= "#{time_ago_in_words(comment.created_at)} ago"%></span></header>
+		<p style='font-size:14px;'>
+			<%= comment.body %>
+		</p>
+	</div>
+</div>
