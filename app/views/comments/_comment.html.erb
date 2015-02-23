@@ -5,8 +5,26 @@
 
 	<div class='comment-body'>
 		<header><span><%= link_to comment.commenter.name, comment.commenter%></span>   <span><%= "#{time_ago_in_words(comment.created_at)} ago"%></span></header>
-		<p style='font-size:14px;'>
+		<p>
 			<%= comment.body %>
 		</p>
+		<footer>
+			<span><%= link_to 'Reply', '#', id: 'reply-link' %></span>
+		</footer>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('#reply-link').on('click', function(e){
+			e.preventDefault();
+			var link = $(e.currentTarget);
+			var parent = $(link.parent().parent().parent());
+			console.log(parent);
+			var html = <%= render partial: 'comments/form', locals: {commentable_type: 'Comment', commentable_id: comment.id}%>
+			console.log(html);
+			parent.append(html);
+			console.log(html);
+		});
+	});
+</script>

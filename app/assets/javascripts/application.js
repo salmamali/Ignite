@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require slick
 //= require foundation
-//= require turbolinks
 //= require jquery.wookmark
 //= require ckeditor/init
 
