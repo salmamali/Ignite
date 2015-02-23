@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'tzinfo-data'
 gem 'foundation-rails'
 gem 'devise'
-gem 'jquery-wookmark-rails'
-gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,7 +46,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'youtube_addy'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry'

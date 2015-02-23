@@ -1,4 +1,4 @@
-<div class='comment-content'>
+<div class='comment-content' id='comment_<%= comment.id %>'>
 	<div class='avatar left'>
 		<%= image_tag comment.commenter.avatar_url %>
 	</div>
@@ -9,22 +9,28 @@
 			<%= comment.body %>
 		</p>
 		<footer>
-			<span><%= link_to 'Reply', '#', id: 'reply-link' %></span>
+			<span><%= link_to 'Reply', '#', id: "reply-link-#{comment.id}", data: {id: comment.id} %></span>
 		</footer>
+		<ul class='comments replies-wrapper'>
+			<% comment.replies.each do |reply| %>
+				<li><%= render partial: 'comments/comment', locals: {comment: reply} %></li>
+			<% end %>
+		</ul>
 	</div>
 </div>
 
 <script>
 	$(document).ready(function(){
-		$('#reply-link').on('click', function(e){
+		var replyLink = '<%= "#reply-link-#{comment.id}"%>'
+		$(replyLink).on('click', function(e){
 			e.preventDefault();
 			var link = $(e.currentTarget);
-			var parent = $(link.parent().parent().parent());
-			console.log(parent);
-			var html = <%= render partial: 'comments/form', locals: {commentable_type: 'Comment', commentable_id: comment.id}%>
-			console.log(html);
+			var id = link.data('id');
+			var parent = $('#comment_'+id);
+			var html = '<%=j render partial: "comments/form", locals: {commentable_type: "Comment", commentable_id: comment.id}%>'
+			html = "<div class='reply-wrapper'>"+html+"</div>";
 			parent.append(html);
-			console.log(html);
 		});
 	});
 </script>
+

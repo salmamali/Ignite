@@ -467,5 +467,16 @@ body {
 	list-style: none;
 }
 
+.replies-wrapper , .reply-wrapper {
+	.post-box .post-image img {
+		width: 36px !important;
+		height: 36px !important;
+
+	}
+	margin-bottom: 20px;
+	margin-left: 48px;
+	margin-top: 20px;
+}
+
 
 @import 'foundation';

@@ -1,5 +1,5 @@
 <div id='post-form'>
-	<%= form_tag comments_path(commentable_id: commentable_id, commentable_type: commentable_type) do %>
+	<%= form_tag comments_path(commentable_id: commentable_id, commentable_type: commentable_type), class: 'comment_form' do %>
 		<div class='post-box'>
 			<div class='post-image left'>
 				<%= image_tag current_user.avatar.url %>
@@ -8,7 +8,7 @@
 				<div class='post-textarea-wrapper'>
 					<%= text_field_tag :body, '', placeholder: 'Join the discussion... ', class: 'form-body'%>
 					<div class='post-actions'>
-						<%= submit_tag 'Post', class: 'right post-submit' %>
+						<%= submit_tag 'Post', class: 'right post-submit comment-submit' %>
 					</div>
 				</div>
 
