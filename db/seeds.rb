@@ -27,6 +27,14 @@ diaby = User.create!(name: 'Diaby', email: 'diaby@ignite.com', password:'1234567
 diaby.avatar = Rails.root.join("db/TeamPics/diaby.jpg").open
 diaby.save!
 
-marwan = User.create!(name: 'Mohamed Marwab', email: 'marwan@ignite.com', password:'12345678', password_confirmation: '12345678', is_member: true)
+marwan = User.create!(name: 'Mohamed Marwan' , email: 'marwan@ignite.com', password:'12345678', password_confirmation: '12345678', is_member: true)
 marwan.avatar = Rails.root.join("db/TeamPics/marwan.jpg").open
 marwan.save!
+
+joe = User.create!(name: 'Youssef Hossam' , email: 'joe@ignite.com', password:'12345678', password_confirmation: '12345678', is_member: true)
+joe.avatar = Rails.root.join("db/TeamPics/joe.jpg").open
+joe.save!
+
+kamel = User.create!(name: 'Abdelrahman Kamel' , email: 'kamel@ignite.com', password:'12345678', password_confirmation: '12345678', is_member: true)
+kamel.avatar = Rails.root.join("db/TeamPics/kamel.jpg").open
+kamel.save!
