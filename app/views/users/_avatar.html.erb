@@ -1,0 +1,9 @@
+<%= form_tag edit_avatar_user_path(user), multipart: true do %>
+	<div class='avatar-edit left'>
+		<%= user_avatar_helper(user) %>
+	</div>
+	<div>
+		<%= file_field_tag :avatar %>
+		<%= submit_tag 'Save', class: 'button radius' %>
+	</div>
+<% end %>

@@ -5,4 +5,21 @@ class UsersController < ApplicationController
 			redirect_to posts_path
 		end
 	end
+
+	def edit
+
+	end
+
+	def edit_avatar
+		current_user.avatar = params[:avatar]
+		current_user.save
+		redirect_to :back
+	end
+
+	def update
+		current_user.name = params[:name]
+		current_user.biography = params[:biography]
+		current_user.save
+		redirect_to :back
+	end
 end

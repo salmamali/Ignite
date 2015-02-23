@@ -27,7 +27,7 @@
             <% if current_user.is_member || current_user.authorized %>
               <li><%= link_to 'Compose', new_post_path %></li>
             <% end %>
-            <li><%= link_to 'Settings', '#'%></li>
+            <li><%= link_to 'Settings', edit_user_path(current_user)%></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
 
           <% else %>

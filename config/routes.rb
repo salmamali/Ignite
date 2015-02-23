@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :posts
 
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      post :edit_avatar
+    end
+  end
   root 'home#index'
  
   # The priority is based upon order of creation: first created -> highest priority.

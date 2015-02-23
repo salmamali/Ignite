@@ -1,0 +1,35 @@
+<section class='home-section'>
+<div class='row'>
+	<ul class="side-nav small-3 columns">
+	  <li><a class='edit-sub-user' href="#">Info</a></li>
+	  <li><a class='edit-sub-avatar' href="#">Avatar</a></li>
+	  <li><a class='edit-sub-account' href="#">Account</a></li>
+	</ul>
+
+	<div class='edit-user-content small-9 columns'>
+		<%= render partial: 'edit', locals: {user: current_user} %>
+	</div>
+</div>
+</section>
+
+<script>
+	$(document).ready(function(){
+		$('.edit-sub-user').on('click', function(e){
+			e.preventDefault();
+			var html = "<%=j render partial: 'edit', locals: {user: current_user}%>";
+			$('.edit-user-content').html(html);
+		});
+
+		$('.edit-sub-avatar').on('click', function(e){
+			e.preventDefault();
+			var html = "<%=j render partial: 'avatar', locals: {user: current_user}%>";
+			$('.edit-user-content').html(html);
+		});
+
+		$('.edit-sub-account').on('click', function(e){
+			e.preventDefault();
+			var html = "<%=j render partial: 'account', locals: {user: current_user}%>";
+			$('.edit-user-content').html(html);
+		});
+	});
+</script>

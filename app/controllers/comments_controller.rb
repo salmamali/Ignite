@@ -21,6 +21,4 @@ class CommentsController < ApplicationController
   	@comment.commenter_id == current_user.id || @comment.post.author_id == current_user
   end
 
-
-
 end

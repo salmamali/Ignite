@@ -1,7 +1,7 @@
 <section class='home-section' style='background:#f8f8f8'>
 	<div class='row'>
 		<h1><%= @post.title %></h1>
-		<p>By <%= link_to @post.author.name, @post.author %></p>
+		<p>By <%= user_name_link_helper @post.author %></p>
 		<div class='post-content'>
 			<%= @post.body.html_safe %>
 		</div>

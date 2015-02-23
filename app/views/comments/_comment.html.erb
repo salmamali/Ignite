@@ -1,10 +1,9 @@
 <div class='comment-content' id='comment_<%= comment.id %>'>
 	<div class='avatar left'>
-		<%= image_tag comment.commenter.avatar_url %>
+		<%= user_avatar_helper(comment.commenter) %>
 	</div>
-
 	<div class='comment-body'>
-		<header><span><%= link_to comment.commenter.name, comment.commenter%></span>   <span><%= "#{time_ago_in_words(comment.created_at)} ago"%></span></header>
+		<header><span><%= user_name_link_helper comment.commenter%></span>   <span><%= "#{time_ago_in_words(comment.created_at)} ago"%></span></header>
 		<p>
 			<%= comment.body %>
 		</p>

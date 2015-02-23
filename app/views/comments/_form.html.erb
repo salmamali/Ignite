@@ -2,7 +2,7 @@
 	<%= form_tag comments_path(commentable_id: commentable_id, commentable_type: commentable_type), class: 'comment_form' do %>
 		<div class='post-box'>
 			<div class='post-image left'>
-				<%= image_tag current_user.avatar.url %>
+				<%= user_avatar_helper(current_user) %>
 			</div>
 			<div class='post-body'>
 				<div class='post-textarea-wrapper'>
@@ -11,7 +11,6 @@
 						<%= submit_tag 'Post', class: 'right post-submit comment-submit' %>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	<% end %>

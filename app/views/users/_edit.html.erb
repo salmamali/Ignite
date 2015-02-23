@@ -1,0 +1,15 @@
+<%= form_tag user_path(user), method: :put do %>
+	<p>
+		<%= label_tag :name %>
+		<%= text_field_tag :name, user.name %>
+	</p>
+
+	<p>
+		<%= label_tag :biography %>
+		<%= text_field_tag :biography, user.biography %>
+	</p>
+
+	<p>
+		<%= submit_tag 'Save', class: 'button radius'%>
+	</p>
+<% end %>
