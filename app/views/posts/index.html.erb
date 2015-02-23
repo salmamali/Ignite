@@ -1,7 +1,7 @@
 <section class='home-section'>
  	<div class='blog-content'>
  		<div class='blog-feed row'>
-		 	<ul class='wookmark small-block-grid-2'>
+		 	<ul class='small-block-grid-2'>
 		 		<% @posts.each do |post| %>
 		 			<li><%= render partial: 'card', locals: {post: post} %></li>
 		 		<% end %>
